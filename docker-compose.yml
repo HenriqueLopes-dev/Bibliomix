@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:17.6
+    container_name: bibliomix
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: bibliomix
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+    restart: always
+    volumes:
+      - bibliomix-data:/var/lib/postgresql/data
+    networks:
+      - bibliomix-network
+
+  adminer:
+    image: adminer:5.3.0
+    container_name: bibliomix-adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    networks:
+      - bibliomix-network
+    depends_on:
+      - db
+
+networks:
+  bibliomix-network:
+
+volumes:
+  bibliomix-data:
