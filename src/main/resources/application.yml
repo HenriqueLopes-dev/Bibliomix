@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: BiblioMix
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bibliomix
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: ${SMTP_USER}
+    password: ${SMTP_PASS}
+    properties:
+      mail:
+        debug: false
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    default-encoding: UTF-8
