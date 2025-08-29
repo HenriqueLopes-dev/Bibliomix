@@ -81,7 +81,7 @@ Cada uma dessas ações é registrada como uma **transação**, respeitando regr
 ```bash
 # Clonar repositório
 git clone https://github.com/HenriqueLopes-dev/Bibliomix.git
-cd biblioteca-livros-usados
+cd Bibliomix
 
 # Subir aplicação e banco
 docker-compose up --build
