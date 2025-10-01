@@ -3,6 +3,8 @@
 **API REST** desenvolvida em **Java + Spring Boot + PostgreSQL**, que simula uma plataforma colaborativa de **empréstimo, troca, venda e doação de livros usados**.  
 O projeto foi construído com foco em **boas práticas de arquitetura**, **regras de negócio reais** e **organização de código**, servindo como demonstração de domínio no ecossistema Spring.
 
+### Visitar código [(clique aqui)](/src/main/java/io/github/HenriqueLopes_dev/BiblioMix/BiblioMix)
+
 ---
 
 ## 🚀 Tecnologias utilizadas
