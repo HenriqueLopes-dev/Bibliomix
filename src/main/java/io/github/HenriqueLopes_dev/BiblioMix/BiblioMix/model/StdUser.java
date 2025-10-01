@@ -1,8 +1,10 @@
 package io.github.HenriqueLopes_dev.BiblioMix.BiblioMix.model;
 
 
+import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -36,6 +38,10 @@ public class StdUser {
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Book> books;
+
+    @Type(ListArrayType.class)
+    @Column(name = "roles", columnDefinition = "varchar[]")
+    private List<String> roles;
 
     @Column
     @CreatedDate

@@ -24,7 +24,7 @@ public class UserValidator {
         Optional<StdUser> opUser = repository.findByEmail(user.getEmail());
 
         if (opUser.isEmpty()){
-            return true;
+            return false;
         }
 
         return !opUser.get().getId().equals(user.getId());

@@ -4,10 +4,18 @@ import io.github.HenriqueLopes_dev.BiblioMix.BiblioMix.model.Author;
 import io.github.HenriqueLopes_dev.BiblioMix.BiblioMix.repository.AuthorRepository;
 import io.github.HenriqueLopes_dev.BiblioMix.BiblioMix.validator.AuthorValidator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import static io.github.HenriqueLopes_dev.BiblioMix.BiblioMix.repository.specs.AuthorSpecs.*;
 
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.UUID;
+
+
 
 @Service
 @RequiredArgsConstructor
@@ -35,5 +43,34 @@ public class AuthorService {
 
     public void delete(Author author) {
         repository.delete(author);
+    }
+
+
+    public Page<Author> search(
+            String name,
+            String nationality,
+            LocalDate dateOfBirth,
+            Integer page,
+            Integer pageSize
+    ) {
+
+        Specification<Author> specs = Specification.unrestricted() ;
+
+
+        if (name != null){
+            specs = specs.and(nameLike(name));
+        }
+
+        if (nationality != null){
+            specs = specs.and(nationalityLike(nationality));
+        }
+
+        if (dateOfBirth != null){
+            specs = specs.and(dateOfBirthEqual(dateOfBirth));
+        }
+
+        Pageable pageRequest = PageRequest.of(page, pageSize);
+
+        return repository.findAll(specs, pageRequest);
     }
 }

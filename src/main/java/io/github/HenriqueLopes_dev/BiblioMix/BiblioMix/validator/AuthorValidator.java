@@ -24,7 +24,7 @@ public class AuthorValidator {
         Optional<Author> opAuthor = repository.findByName(author.getName());
 
         if (opAuthor.isEmpty()){
-            return true;
+            return false;
         }
         return !opAuthor.get().getId().equals(author.getId());
     }

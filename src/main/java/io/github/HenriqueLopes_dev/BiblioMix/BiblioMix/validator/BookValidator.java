@@ -11,6 +11,6 @@ public class BookValidator {
     private final BookRepository repository;
 
     public void validate(Book book) {
-        if ()
+
     }
 }
