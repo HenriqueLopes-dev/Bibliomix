@@ -7,7 +7,7 @@ O projeto foi construído com foco em **boas práticas de arquitetura**, **regra
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - Java 21
 - Spring Boot (Web, Data JPA, Validation, Security, Hateoas)
@@ -18,11 +18,12 @@ O projeto foi construído com foco em **boas práticas de arquitetura**, **regra
 
 ---
 
-## 📐 Modelagem das Entidades
+## Modelagem das Entidades
 
-- **Usuário** → quem cadastra e recebe livros, possui saldo para transações de venda.  
-- **Autor** → representado separadamente, para evitar duplicações e permitir consultas específicas.  
-- **Livro** → título, isbn, autor(es), ano, dono atual e status *(DISPONÍVEL, EMPRESTADO, VENDIDO, TROCADO, DOADO)*.
+- **Usuário** → cadastra e recebe livros. Cada usuário possui um saldo para realizar transações de venda.
+- **Autor** → modelado separadamente para evitar duplicações e permitir consultas específicas sobre cada autor.  
+- **Livro** → contém informações como título, ISBN, autor(es), ano de publicação, dono atual e status.
+  - Status possíveis: DISPONÍVEL, EMPRESTADO, VENDIDO, TROCADO, DOADO
 
 ---
 
