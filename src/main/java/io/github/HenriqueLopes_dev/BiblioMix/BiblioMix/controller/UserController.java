@@ -52,12 +52,11 @@ public class UserController implements GenericController{
 
     @PutMapping("{id}")
     public ResponseEntity<Object> update(@PathVariable String id, @RequestBody @Valid UserDTO dto){
-        StdUser user = mapper.toEntity(dto);
         return service.findById(UUID.fromString(id))
                 .map(stdUser -> {
-                    stdUser.setName(user.getName());
-                    stdUser.setEmail(user.getEmail());
-                    stdUser.setPassword(user.getPassword());
+                    stdUser.setName(dto.name());
+                    stdUser.setEmail(dto.email());
+                    stdUser.setPassword(dto.password());
                     service.update(stdUser);
 
                     return ResponseEntity.noContent().build();

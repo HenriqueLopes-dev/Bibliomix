@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>io.github.HenriqueLopes_dev.BiblioMix</groupId>
 	<artifactId>BiblioMix</artifactId>
@@ -78,6 +78,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
+            <version>3.5.5</version>
         </dependency>
         <dependency>
             <groupId>io.hypersistence</groupId>

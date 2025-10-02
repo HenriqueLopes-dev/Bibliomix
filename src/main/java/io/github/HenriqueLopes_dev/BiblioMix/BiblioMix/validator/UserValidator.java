@@ -21,12 +21,8 @@ public class UserValidator {
     }
 
     private boolean existsWithEmail(StdUser user) {
-        Optional<StdUser> opUser = repository.findByEmail(user.getEmail());
-
-        if (opUser.isEmpty()){
-            return false;
-        }
-
-        return !opUser.get().getId().equals(user.getId());
+        return repository.findByEmail(user.getEmail())
+                .map(existingUser -> !existingUser.getId().equals(user.getId()))
+                .orElse(false);
     }
 }
